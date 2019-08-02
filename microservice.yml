@@ -1,0 +1,169 @@
+omg: 1
+lifecycle:
+  startup:
+    command: ["google-analytics"]
+info:
+  version: 1.0.0
+  title: Google Analytics
+  description: This is a google-analytics service.
+  contact:
+    name: Rohit Shetty
+    url: https://github.com/ht68rohit
+    email: rohits@heaptrace.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+actions:
+  accountList:
+    help: Get list of accounts from google analytics.
+    http:
+      port: 3000
+      method: post
+      path: /accountList
+      contentType: application/json
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        items: 
+          help: The list of all accounts in details.
+          type: list
+        itemsPerPage:
+          help: The count of items per page. 
+          type: int
+        kind:
+          help: Type of the resource.
+          type: string
+        startIndex:
+          help: The start index. 
+          type: int
+        totalResults:
+          help: The total number of accounts.
+          type: int
+        username:
+          help: The google analytics account username.
+          type: string
+  webPropertiesList:
+    help: Get web properties list.
+    http:
+      port: 3000
+      method: post
+      path: /webPropertiesList
+      contentType: application/json
+    arguments:
+      accountId:
+        type: string
+        in: requestBody
+        required: true
+        help: The account Id to get all web properties.
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        items: 
+          help: The list of all web properties in details.
+          type: list
+        itemsPerPage:
+          help: The count of items per page. 
+          type: int
+        kind:
+          help: Type of the resource.
+          type: string
+        startIndex:
+          help: The start index. 
+          type: int
+        totalResults:
+          help: The total number of accounts.
+          type: int
+        username:
+          help: The google analytics account username.
+          type: string
+  profileList:
+    help: Get all profiles list.
+    http:
+      port: 3000
+      method: post
+      path: /profileList
+      contentType: application/json
+    arguments:
+      accountId:
+        type: string
+        in: requestBody
+        required: true
+        help: The account Id.
+      webPropertyId:
+        type: string
+        in: requestBody
+        required: true
+        help: The web property Id.
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        items: 
+          help: The list of all web properties in details.
+          type: list
+        itemsPerPage:
+          help: The count of items per page. 
+          type: int
+        kind:
+          help: Type of the resource.
+          type: string
+        startIndex:
+          help: The start index. 
+          type: int
+        totalResults:
+          help: The total number of accounts.
+          type: int
+        username:
+          help: The google analytics account username.
+          type: string
+  realtime:
+    help: Get realtime data.
+    http:
+      port: 3000
+      method: post
+      path: /realtime
+      contentType: application/json
+    arguments:
+      profileId:
+        type: string
+        in: requestBody
+        required: true
+        help: The profile Id.
+    output:
+      type: object
+      contentType: application/json
+      properties:
+        columnHeaders:
+          help: The list of column headers.
+          type: list
+        id:
+          help: The url link of real time.
+          type: string
+        kind:
+          help: Type of the resource.
+          type: string
+        profileInfo:
+          help: The profile details.
+          type: object
+        query:
+          help: The current query object.
+          type: object
+        rows:
+          help: Returns number of rows.
+          type: list
+        selfLink:
+          help: The self link url of real time.
+          type: string
+        totalResults:
+          help: The total number of accounts.
+          type: int
+        totalsForAllResults:
+          help: The object of result with total active user count.
+          type: object
+environment:
+  KEY:
+    type: string
+    required: true
+    help: Base64 data of JSON credential's key file.
