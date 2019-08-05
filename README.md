@@ -13,18 +13,22 @@ An OMG service for google analytics, It is web analytics service that allows you
 ##### Account List
 ```coffee
 google-analytics accountList
+{"items": ["list"],"itemsPerPage": 1000,"kind": "kindResource","startIndex": 1,"totalResults": 1,"username": "accountUsername"}
 ```
 ##### WebProperties List
 ```coffee
 google-analytics webPropertiesList accountId:'accountId'
+{"items": ["list"],"itemsPerPage": 1000,"kind": "kindResource","startIndex": 1,"totalResults": 1,"username": "accountUsername"}
 ```
 ##### Profile List
 ```coffee
 google-analytics profileList accountId:'accountId' webPropertyId:'webPropertyId'
+{"items": ["list"],"itemsPerPage": 1000,"kind": "kindResource","startIndex": 1,"totalResults": 1,"username": "accountUsername"}
 ```
 ##### RealTime Data
 ```coffee
 google-analytics realtime profileId:'profileId'
+{"columnHeaders": ["list"],"id": "idLink","kind": "analytics#realtimeData","profileInfo": {    "profileDetails"},"query": {"queryDetails"},"rows": ["rowCount"],"selfLink": "selfLink",  "totalResults": 100,"totalsForAllResults": {"totalsForAllResultsDetails"}}
 ```
 
 Curious to [learn more](https://docs.storyscript.io/)?
