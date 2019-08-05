@@ -1,39 +1,31 @@
 # _Google Analytics_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-<!-- [![Build Status](https://travis-ci.com/omg-services/google-analytics.svg?branch=master)](https://travis-ci.com/omg-services/google-analytics)
-[![codecov](https://codecov.io/gh/omg-services/google-analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/google-analytics) -->
+[![Build Status](https://travis-ci.com/omg-services/google-analytics.svg?branch=master)](https://travis-ci.com/omg-services/google-analytics)
+[![codecov](https://codecov.io/gh/omg-services/google-analytics/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/google-analytics)
 
 
-<!-- An OMG service for google calendar, it allows users to create and edit events. Reminders can be enabled for events, with options available for type and time. Event locations can also be added, and other users can be invited to events. -->
+An OMG service for google analytics, It is web analytics service that allows you to analyze in-depth detail about the visitors on your website. It provides valuable insights that can help you to shape the success strategy of your business.
 
 ## Direct usage in [Storyscript](https://storyscript.io/):
 
-<!-- ##### Create Calendar
+
+##### Account List
 ```coffee
-google-calendar createCalendar summary:'calendar summary' description:'calendar description' location:'geographic location'
-{"conferenceProperties": {"object"},"description": "calendar description","etag": "etag","id": "calendar Id","kind": "calendar#calendar","location": "geographic location","summary": "calendar summary", "timeZone": "UTC"}
+google-analytics accountList
 ```
-##### Create Event
+##### WebProperties List
 ```coffee
-google-calendar createEvent calendarId:'calendar Id' summary:'Event summary' description:'Event description' location:'location' attendeesList:'["abc@example.com","xyz@example.com"]'startDate:'2019-08-02T12:00:00.000Z' endDate:'2019-08-02T16:00:00.000Z'
-{"attendees": ["attendees list"],"created": "2019-07-30T10:45:20.000Z","creator": {"creator details"},"description": "Event description","end": {"dateTime": "2019-08-02T16:00:00Z"},"etag": "etag","htmlLink": "htmlLink","iCalUID": "iCalUID","id": "event id","kind": "calendar#event","location": "Pune","organizer": {"organizer details"},"start": {"dateTime": "2019-08-02T12:00:00Z"},"status": "confirmed","summary": "Event summary","updated": "2019-07-30T10:45:20.628Z"}
+google-analytics webPropertiesList accountId:'accountId'
 ```
-##### Get Calendar By ID
+##### Profile List
 ```coffee
-google-calendar getCalendar calendarId:'calendar Id'
-{"accessRole": "owner","backgroundColor": "#cca6ac","colorId": "21","conferenceProperties": {"object"},"description": "calendar description","etag": "etag","id": "calendar Id","kind": "calendar#calendar","location": "geographic location","summary": "calendar summary", "timeZone": "UTC"}
+google-analytics profileList accountId:'accountId' webPropertyId:'webPropertyId'
 ```
-##### Event List
+##### RealTime Data
 ```coffee
-google-calendar eventList
-{"etag": "etag",[{"accessRole": "owner","backgroundColor": "#cca6ac","colorId": "21","conferenceProperties": {"object"},"description": "calendar description","etag": "etag","id": "calendar Id","kind": "calendar#calendar","location": "geographic location","summary": "calendar summary", "timeZone": "UTC"}] ,"kind": "calendar#calendarList", "nextPageToken": "nextPageToken"}
+google-analytics realtime profileId:'profileId'
 ```
-##### Get Event By ID
-```coffee
-google-calendar getEvent calendarId:'calendar Id' eventId:'event Id'
-{"attendees": ["attendees list"],"created": "2019-07-30T10:45:20.000Z","creator": {"creator details"},"description": "Event description","end": {"dateTime": "2019-08-02T16:00:00Z"},"etag": "etag","htmlLink": "htmlLink","iCalUID": "iCalUID","id": "event id","kind": "calendar#event","location": "Pune","organizer": {"organizer details"},"start": {"dateTime": "2019-08-02T12:00:00Z"},"status": "confirmed","summary": "Event summary","updated": "2019-07-30T10:45:20.628Z"}
-``` -->
 
 Curious to [learn more](https://docs.storyscript.io/)?
 
@@ -41,28 +33,22 @@ Curious to [learn more](https://docs.storyscript.io/)?
 
 ## Usage with [OMG CLI](https://www.npmjs.com/package/omg)
 
-<!-- ##### Create Calendar
+##### Account List
 ```shell
-$ omg run createCalendar -a summary=<SUMMARY> -a description=<DESCRIPTION> -a location=<LOCATION>  -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
+$ omg run accountList -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
 ```
-##### Create Event
+##### WebProperties List
 ```shell
-$ omg run createEvent -a calendarId=<CALENDAR_ID> -a summary=<SUMMARY> -a description=<DESCRIPTION> -a location=<LOCATION> -a attendeesList=<LIST_ATTENDEES_EMAIL_ADDRESS> -a startDate=<START_DATE> -a endDate=<END_DATE> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
+$ omg run webPropertiesList -a accountId=<ACCOUNT_ID> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
 ```
-**Note**: The Start and End date should be string in this "2006-01-02T15:04:05.000Z" format.
-##### Get Event By ID
+##### Profile List
 ```shell
-$ omg run getCalendar -a calendarId=<CALENDAR_ID> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
+$ omg run profileList -a accountId=<ACCOUNT_ID> -a webPropertyId=<WEBPROPERTY_ID> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
 ```
-##### Event List
+##### RealTime Data
 ```shell
-$ omg run eventList -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
+$ omg run realtime -a profileId=<PROFILE_ID> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
 ```
-##### Get Event By ID
-```shell
-$ omg run getEvent -a calendarId=<CALENDAR_ID> -a eventId=<EVENT_ID> -e KEY=<BASE64_DATA_OF_JSON_KEY_FILE>
-``` -->
-
 
 **Note**: The OMG CLI requires [Docker](https://docs.docker.com/install/) to be installed.
 
