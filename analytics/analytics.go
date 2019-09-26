@@ -22,7 +22,7 @@ type Arguments struct {
 //AccountList Google-Analytics
 func AccountList(responseWriter http.ResponseWriter, request *http.Request) {
 
-	var key = os.Getenv("KEY")
+	var key = os.Getenv("CREDENTIAL_JSON")
 
 	decodedJSON, err := base64.StdEncoding.DecodeString(key)
 	if err != nil {
@@ -42,7 +42,6 @@ func AccountList(responseWriter http.ResponseWriter, request *http.Request) {
 		result.WriteErrorResponseString(responseWriter, serviceErr.Error())
 		return
 	}
-
 	accountResponse, accountErr := service.Management.Accounts.List().Do()
 	if accountErr != nil {
 		result.WriteErrorResponseString(responseWriter, accountErr.Error())
@@ -56,7 +55,7 @@ func AccountList(responseWriter http.ResponseWriter, request *http.Request) {
 //WebPropertiesList Google-Analytics
 func WebPropertiesList(responseWriter http.ResponseWriter, request *http.Request) {
 
-	var key = os.Getenv("KEY")
+	var key = os.Getenv("CREDENTIAL_JSON")
 
 	decodedJSON, err := base64.StdEncoding.DecodeString(key)
 	if err != nil {
@@ -99,7 +98,7 @@ func WebPropertiesList(responseWriter http.ResponseWriter, request *http.Request
 //ProfilesList Google-Analytics
 func ProfilesList(responseWriter http.ResponseWriter, request *http.Request) {
 
-	var key = os.Getenv("KEY")
+	var key = os.Getenv("CREDENTIAL_JSON")
 
 	decodedJSON, err := base64.StdEncoding.DecodeString(key)
 	if err != nil {
@@ -142,7 +141,7 @@ func ProfilesList(responseWriter http.ResponseWriter, request *http.Request) {
 //RealtimeData Google-Analytics
 func RealtimeData(responseWriter http.ResponseWriter, request *http.Request) {
 
-	var key = os.Getenv("KEY")
+	var key = os.Getenv("CREDENTIAL_JSON")
 
 	decodedJSON, err := base64.StdEncoding.DecodeString(key)
 	if err != nil {

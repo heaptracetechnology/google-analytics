@@ -163,7 +163,7 @@ actions:
           help: The object of result with total active user count.
           type: object
 environment:
-  KEY:
+  CREDENTIAL_JSON:
     type: string
     required: true
-    help: Base64 data of JSON credential's key file.
+    help: Base64 data of credential.json' file.
